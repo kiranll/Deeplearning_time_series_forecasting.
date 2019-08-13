@@ -44,7 +44,7 @@ def difference(data, interval):
 
 # fit a model
 def model_fit(train, config):
-	# unpack config
+	# unpack config.
 	n_seq, n_steps, n_filters, n_kernel, n_nodes, n_epochs, n_batch = config
 	n_input = n_seq * n_steps
 	# prepare data
@@ -88,7 +88,7 @@ def walk_forward_validation(data, n_test, cfg):
 		yhat = model_predict(model, history, cfg)
 		# store forecast in list of predictions
 		predictions.append(yhat)
-		# add actual observation to history for the next loop
+		# add actual observation to history for the next loop.
 		history.append(test[i])
 	# estimate prediction error
 	error = measure_rmse(test, predictions)
