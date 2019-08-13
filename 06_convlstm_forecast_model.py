@@ -13,15 +13,16 @@ from keras.layers import Flatten
 from keras.layers import ConvLSTM2D
 from matplotlib import pyplot
 
-# split a univariate dataset into train/test sets
+# split a univariate dataset into train/test sets.
 def train_test_split(data, n_test):
 	return data[:-n_test], data[-n_test:]
 
-# transform list into supervised learning format
+# transform list into supervised learning format.
+
 def series_to_supervised(data, n_in, n_out=1):
 	df = DataFrame(data)
 	cols = list()
-	# input sequence (t-n, ... t-1)
+	# input sequence (t-n, ... t-1).
 	for i in range(n_in, 0, -1):
 		cols.append(df.shift(i))
 	# forecast sequence (t, t+1, ... t+n)
